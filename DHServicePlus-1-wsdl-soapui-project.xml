@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4974892a-b121-45b1-bd8d-6892ae81f858" activeEnvironment="Default" name="DHServicePlus_1_wsdl" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="08f52e76-af41-487c-b6b6-8f9e0fd81fdc" wsaVersion="NONE" name="ServicioHistoriaCreditoPlusSoapBinding" type="wsdl" bindingName="{http://www.datacredito.com.co/services/serviciohistoriacreditoplus/v1}ServicioHistoriaCreditoPlusSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/Datapower/PCO_BuroExterno/WSDL/DHServicePlus_1_wsdl.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\Datapower\PCO_BuroExterno\WSDL\DHServicePlus_1_wsdl.wsdl"><con:part><con:url>file:\D:\Datapower\PCO_BuroExterno\WSDL\DHServicePlus_1_wsdl.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.datacredito.com.co/services/serviciohistoriacreditoplus/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://www.datacredito.com.co/services/serviciohistoriacreditoplus/v1">
+  <wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:schema>
+      <xsd:import schemaLocation="DHServicePlus.xsd2_xsd.xsd" namespace="http://ws.hc2.dc.com/v1"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarHC2PJRequest">
+    <wsdl:part name="parametersPJ" element="xsns:consultarHC2PJ" xmlns:xsns="http://ws.hc2.dc.com/v1"/>
+  </wsdl:message>
+  <wsdl:message name="consultarHC2PJResponse">
+    <wsdl:part name="bodyPJ" element="xsns:consultarHC2PJResponse" xmlns:xsns="http://ws.hc2.dc.com/v1"/>
+  </wsdl:message>
+  <wsdl:message name="consultarHC2PNRequest">
+    <wsdl:part name="parametersPN" element="xsns:consultarHC2" xmlns:xsns="http://ws.hc2.dc.com/v1"/>
+  </wsdl:message>
+  <wsdl:message name="consultarHC2PNResponse">
+    <wsdl:part name="bodyPN" element="xsns:consultarHC2Response" xmlns:xsns="http://ws.hc2.dc.com/v1"/>
+  </wsdl:message>
+  <wsdl:message name="HC2PNJException">
+    <wsdl:part name="Fault" element="xsns:Fault" xmlns:xsns="http://ws.hc2.dc.com/v1"/>
+  </wsdl:message>
+  <wsdl:portType name="HC2PNJService">
+    <wsdl:operation name="consultarHC2">
+      <wsdl:input name="consultarHC2PNRequest" message="ns0:consultarHC2PNRequest"/>
+      <wsdl:output name="consultarHC2PNResponse" message="ns0:consultarHC2PNResponse"/>
+      <wsdl:fault name="HC2PNJException" message="ns0:HC2PNJException"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultarHC2PJ">
+      <wsdl:input name="consultarHC2PJRequest" message="ns0:consultarHC2PJRequest"/>
+      <wsdl:output name="consultarHC2PJResponse" message="ns0:consultarHC2PJResponse"/>
+      <wsdl:fault name="HC2PNJException" message="ns0:HC2PNJException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioHistoriaCreditoPlusSoapBinding" type="ns0:HC2PNJService">
+    <soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="consultarHC2">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="consultarHC2PNRequest">
+        <soap11:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultarHC2PNResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HC2PNJException">
+        <soap11:fault name="HC2PNJException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultarHC2PJ">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="consultarHC2PJRequest">
+        <soap11:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultarHC2PJResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HC2PNJException">
+        <soap11:fault name="HC2PNJException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioHistoriaCreditoPlus">
+    <wsdl:port name="ServicioHistoriaCreditoPlus.dmz.https" binding="ns0:ServicioHistoriaCreditoPlusSoapBinding">
+      <soap11:address location="https://demo-servicesesb.datacredito.com.co:443/wss/dhws3/services/DHServicePlus"/>
+    </wsdl:port>
+    <wsdl:port name="ServicioHistoriaCreditoPlus.wan.http" binding="ns0:ServicioHistoriaCreditoPlusSoapBinding">
+      <soap11:address location="http://demo-iservicesesb.datacredito.com.co:8080/wss/dhws3/services/DHServicePlus"/>
+    </wsdl:port>
+    <wsdl:port name="ServicioHistoriaCreditoPlus.wan.https" binding="ns0:ServicioHistoriaCreditoPlusSoapBinding">
+      <soap11:address location="https://demo-iservicesesb.datacredito.com.co:443/wss/dhws3/services/DHServicePlus"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\D:\Datapower\PCO_BuroExterno\WSDL\DHServicePlus.xsd2_xsd.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://ws.hc2.dc.com/v1" attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:hc2="http://ws.hc2.dc.com/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="consultarHC2Response" type="hc2:consultarHC2Response"/>
+  <xsd:complexType name="consultarHC2Response">
+    <xsd:sequence>
+      <xsd:element name="consultarHC2Return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultarHC2PJResponse">
+    <xsd:sequence>
+      <xsd:element name="consultarHC2PJReturn" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="consultarHC2" type="hc2:historiaCreditoPlus"/>
+  <xsd:complexType name="historiaCreditoPlus">
+    <xsd:sequence>
+      <xsd:element name="solicitud" type="hc2:solicitudPlus" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="solicitudPlus">
+    <xsd:sequence>
+      <xsd:element name="clave" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="identificacion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="primerApellido" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="producto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="tipoIdentificacion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="usuario" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="parametros" type="hc2:parametros" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="parametros">
+    <xsd:sequence>
+      <xsd:element name="parametro" type="hc2:parametro" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="parametro">
+    <xsd:sequence>
+      <xsd:element name="tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="nombre" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="valor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="consultarHC2PJ" type="hc2:historiaCreditoPlusPJ"/>
+  <xsd:complexType name="historiaCreditoPlusPJ">
+    <xsd:sequence>
+      <xsd:element name="solicitud" type="hc2:solicitudPlus" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="consultarHC2PJResponse" type="hc2:consultarHC2PJResponse"/>
+  <xsd:element name="Fault" final="extension">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="faultcode" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="faultstring" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="detail">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="HC2PNJException" type="hc2:HC2PNJException" minOccurs="0" maxOccurs="1"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="HC2PNJException">
+    <xsd:sequence>
+      <xsd:element name="Business" type="hc2:Business" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Runtime" type="hc2:Runtime" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Business">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="error-code" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="error-message" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Runtime">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="uuid" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="device-name" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="error-code" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="error-subcode" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="error-message" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://demo-iservicesesb.datacredito.com.co:13907/wss/dhws3/services/DHServicePlus</con:endpoint><con:endpoint>http://demo-iservicesesb.datacredito.com.co:8080/wss/dhws3/services/DHServicePlus</con:endpoint><con:endpoint>https://demo-iservicesesb.datacredito.com.co:443/wss/dhws3/services/DHServicePlus</con:endpoint><con:endpoint>https://demo-servicesesb.datacredito.com.co:443/wss/dhws3/services/DHServicePlus</con:endpoint></con:endpoints><con:operation id="83e2022b-8211-4c0a-b764-7414a29e1b27" isOneWay="false" action="" name="consultarHC2" bindingOperationName="consultarHC2" type="Request-Response" outputName="consultarHC2PNResponse" inputName="consultarHC2PNRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a7438a33-aa14-4697-afb4-5a5c9581e1fe" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.23.50.12:13907/wss/dhws3/services/DHServicePlus</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://ws.hc2.dc.com/v1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:consultarHC2>\r
+         <v1:solicitud>\r
+            <v1:clave>?</v1:clave>\r
+            <v1:identificacion>?</v1:identificacion>\r
+            <v1:primerApellido>?</v1:primerApellido>\r
+            <v1:producto>?</v1:producto>\r
+            <v1:tipoIdentificacion>?</v1:tipoIdentificacion>\r
+            <v1:usuario>?</v1:usuario>\r
+            <!--Optional:-->\r
+            <v1:parametros>\r
+               <!--Zero or more repetitions:-->\r
+               <v1:parametro>\r
+                  <!--Optional:-->\r
+                  <v1:tipo>?</v1:tipo>\r
+                  <!--Optional:-->\r
+                  <v1:nombre>?</v1:nombre>\r
+                  <!--Optional:-->\r
+                  <v1:valor>?</v1:valor>\r
+               </v1:parametro>\r
+            </v1:parametros>\r
+         </v1:solicitud>\r
+      </v1:consultarHC2>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.datacredito.com.co/services/serviciohistoriacreditoplus/v1/HC2PNJService/consultarHC2PNRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="61a35d5d-7492-4913-9e3d-71375e13d2ae" isOneWay="false" action="" name="consultarHC2PJ" bindingOperationName="consultarHC2PJ" type="Request-Response" outputName="consultarHC2PJResponse" inputName="consultarHC2PJRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cef9c75e-845d-43da-889d-e155ff43e594" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://demo-iservicesesb.datacredito.com.co:8080/wss/dhws3/services/DHServicePlus</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://ws.hc2.dc.com/v1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:consultarHC2PJ>\r
+         <v1:solicitud>\r
+            <v1:clave>?</v1:clave>\r
+            <v1:identificacion>?</v1:identificacion>\r
+            <v1:primerApellido>?</v1:primerApellido>\r
+            <v1:producto>?</v1:producto>\r
+            <v1:tipoIdentificacion>?</v1:tipoIdentificacion>\r
+            <v1:usuario>?</v1:usuario>\r
+            <!--Optional:-->\r
+            <v1:parametros>\r
+               <!--Zero or more repetitions:-->\r
+               <v1:parametro>\r
+                  <!--Optional:-->\r
+                  <v1:tipo>?</v1:tipo>\r
+                  <!--Optional:-->\r
+                  <v1:nombre>?</v1:nombre>\r
+                  <!--Optional:-->\r
+                  <v1:valor>?</v1:valor>\r
+               </v1:parametro>\r
+            </v1:parametros>\r
+         </v1:solicitud>\r
+      </v1:consultarHC2PJ>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.datacredito.com.co/services/serviciohistoriacreditoplus/v1/HC2PNJService/consultarHC2PJRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
